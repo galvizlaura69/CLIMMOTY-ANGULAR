@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import switchTimeZone from 'src/utils/time';
 
 @Component({
   selector: 'app-cardInfo',
@@ -16,6 +17,7 @@ export class CardInfoComponent implements OnChanges {
   pressure!: number;
   temp_max!: number;
   sugges!: string;
+  timeFormat: any;
 
   ngOnChanges() {
     this.country = this.infoWeather?this.infoWeather.sys.country:null;
@@ -26,6 +28,7 @@ export class CardInfoComponent implements OnChanges {
     this.visibility = this.infoWeather?this.infoWeather.visibility:null;
     this.pressure = this.infoWeather?this.infoWeather.main.pressure:null;
     this.temp_max = this.infoWeather?this.infoWeather.main.temp_max:null;
+    this.timeFormat = switchTimeZone(this.timezone);
   }
 
   suggestion(): string {
