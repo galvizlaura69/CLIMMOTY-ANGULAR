@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   cityList = cities;
   constructor(private api: ApiService) {}
 
-  selectChange(event) {
+  selectChange(event:any) {
     this.idSelectedCity = event.target.value;
     this.api.get(this.idSelectedCity).subscribe((res) => {
       this.weatherCurrent = res;

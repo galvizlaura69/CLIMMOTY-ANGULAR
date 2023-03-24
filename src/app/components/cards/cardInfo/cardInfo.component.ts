@@ -7,25 +7,25 @@ import { Component, Input, OnInit, OnChanges } from '@angular/core';
 })
 export class CardInfoComponent implements OnChanges {
   @Input() infoWeather: any;
-  country: string;
-  temp: number;
-  humidity: number;
-  description: string;
-  timezone: number;
-  visibility: number;
-  pressure: number;
-  temp_max: number;
-  sugges: string;
+  country!: string;
+  temp!: number;
+  humidity!: number;
+  description!: string;
+  timezone!: number;
+  visibility!: number;
+  pressure!: number;
+  temp_max!: number;
+  sugges!: string;
 
   ngOnChanges() {
-    this.country = this.infoWeather?.sys.country;
-    this.temp = this.infoWeather?.main.temp;
-    this.humidity = this.infoWeather?.main.humidity;
-    this.description = this.infoWeather?.weather[0].description;
-    this.timezone = this.infoWeather?.timezone;
-    this.visibility = this.infoWeather?.visibility;
-    this.pressure = this.infoWeather?.main.pressure;
-    this.temp_max = this.infoWeather?.main.temp_max;
+    this.country = this.infoWeather?this.infoWeather.sys.country:null;
+    this.temp = this.infoWeather?this.infoWeather.main.temp:null;
+    this.humidity = this.infoWeather?this.infoWeather.main.humidity:null;
+    this.description = this.infoWeather?this.infoWeather.weather[0].description:null;
+    this.timezone = this.infoWeather?this.infoWeather.timezone:null;
+    this.visibility = this.infoWeather?this.infoWeather.visibility:null;
+    this.pressure = this.infoWeather?this.infoWeather.main.pressure:null;
+    this.temp_max = this.infoWeather?this.infoWeather.main.temp_max:null;
   }
 
   suggestion(): string {
